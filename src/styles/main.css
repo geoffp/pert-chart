@@ -1,3 +1,19 @@
+:root {
+  --bg-yellow: hsla(50, 80%, 80%, 1.0);
+  --border-yellow: hsla(50, 80%, 70%, 1.0);
+  --bg-blue: hsla(202, 80%, 80%, 1.0);
+  --border-blue: hsla(202, 80%, 70%, 1.0);
+  --bg-purple: hsla(242, 80%, 90%, 1.0);
+  --border-purple: hsla(242, 80%, 70%, 1.0);
+  --bg-salmon: hsla(10, 80%, 90%, 1.0);
+  --border-salmon: hsla(10, 80%, 80%, 1.0);
+  --bg-green: hsla(100, 80%, 80%, 1.0);
+  --border-green: hsla(100, 70%, 70%, 1.0);
+
+  --fill: var(--bg-yellow);
+  --stroke: var(--border-yellow);
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
@@ -15,12 +31,12 @@ body {
 }
 
 #dag svg {
-  border: 1px solid #999;
+  border: 1px solid grey;
 }
 
 #dag text {
-  font-weight: 300;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+  font-weight: 500;
+  font-family: "Helvetica For Target", Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
@@ -28,10 +44,30 @@ body {
   fill: #ffff;
 }
 
+/* Nodes */
+
+
+/* Node type colors */
 #dag .node rect {
   stroke-width: 2px;
-  stroke: #333;
-  fill: #eeeeff;
+  stroke: var(--stroke);
+  fill: var(--fill);
+  filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.2));
+}
+.type-ep, .type-svc {
+  --fill: var(--bg-blue);
+  --stroke: var(--border-blue);
+}
+.type-site {
+  --fill: var(--bg-salmon);
+  --stroke: var(--border-salmon);
+}
+.state-done {
+  --fill: var(--bg-green);
+  --stroke: var(--border-green);
+}
+.state-done::after {
+  content: '.';
 }
 
 #dag .edge rect {
